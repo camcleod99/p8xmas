@@ -1,10 +1,7 @@
 -- House.lua
 -- Manages house graphic functions
 
--- TODO: Documentation
-
--- Houses
-
+-- TODO: v2 Implimentation
 
 -- initHouseVars()
 -- houses       :   list of houses
