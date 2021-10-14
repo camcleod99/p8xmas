@@ -9,9 +9,7 @@ end
 function _update60()
     frm=frm+1
     -- Update Objects
-    for h in all(housetable) do
-        h:update()
-    end    
+    houseUpdater()
     for f in all(flaketable) do
         f:update()
     end

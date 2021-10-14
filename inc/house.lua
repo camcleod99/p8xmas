@@ -9,6 +9,7 @@
 --                  sprite  : list of sprites {spriteNo,X offset, Y offset}
 -- housetable   :   table of populated houses
 function initHouseVars()
+housefrm=0
 houses={
     --housetype 1
     {
@@ -31,10 +32,17 @@ houses={
         {22,-8,0},
         {23,0,0}
     },
+    --housetype 4
+    {
+        {225,-1,-1},
+        {225,0,-1},
+        {225,-1,0},
+        {225,0,0}
+    },
 }
 -- Create and Populate housetable
 housetable={}
-for i = 1, 10, 1 do
+for i = 1, 9, 1 do
     lasthouse=0
     repeat
         makehousetype=flr(rnd(3))+1
@@ -42,15 +50,15 @@ for i = 1, 10, 1 do
     lasthosue = makehousetype
     -- Constructor
     add(housetable, {
-        coords={128+(15*i),92},
+        coords={(128+16*(i-1)),92},
         sprites=houses[makehousetype],
     -- Updater & Destructor
         update=function(self)
             -- Updater
             self.coords[1] = self.coords[1] - 1
             -- Destructor
-            if ( (self.coords[1] + 15 ) < 0 ) then
-                self.coords[1] = 132
+            if ( (self.coords[1] + 16 ) < 0 ) then
+                self.coords[1] = 135
             end
         end,
     -- Artist
@@ -61,4 +69,14 @@ for i = 1, 10, 1 do
         end,
     })
 end
+end
+
+function houseUpdater()
+    housefrm = housefrm +1
+    if (housefrm == 1) then
+        for h in all(housetable) do
+            h:update()
+        end
+    housefrm = 0
+    end
 end
