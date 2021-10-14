@@ -3,8 +3,7 @@ function _init()
     frm=0
     initSnowVars()
     initHouseVars()
-    addSnow()
-    addHouse(1)
+    addSnow()  
 end
 
 function _update60()
@@ -17,7 +16,6 @@ function _update60()
         f:update()
     end
     -- Add to object tables   
-    addHouse()
     addSnow()
 end
 
@@ -30,8 +28,4 @@ function _draw()
     for f in all(flaketable) do
         f:draw()
     end
-    debugPrint(frm,10)
-    debugPrint(housefrm,20)
-    debugPrint(housefrmrate,30)
-    debugPrint(houseno,40)
 end
