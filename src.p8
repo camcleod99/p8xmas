@@ -2,7 +2,7 @@ pico-8 cartridge // http://www.pico-8.com
 version 33
 __lua__
 
-#include ./inc/runtime.lua
+#include ./inc/main.lua
 #include ./inc/snow.lua
 #include ./inc/house.lua
 #include ./inc/debug.lua
