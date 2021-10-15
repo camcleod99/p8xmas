@@ -1,7 +1,8 @@
 -- House.lua
--- V2
 -- Manages house graphic functions
+-- V2
 
+-- initHouse
 -- Houses are only created at init so no need for a 'addHouse' function to be made
 function initHouse()
     housefrm=0

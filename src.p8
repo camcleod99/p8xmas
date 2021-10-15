@@ -5,6 +5,7 @@ __lua__
 #include ./inc/main.lua
 #include ./inc/snow.lua
 #include ./inc/house.lua
+#include ./inc/message.lua
 #include ./inc/debug.lua
 
 __gfx__

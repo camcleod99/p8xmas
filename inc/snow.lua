@@ -1,9 +1,9 @@
 -- Snow.lua
--- V2
 -- Manages snow graphic functions
+-- V2
 
---  addSnow Function is needed multiple times, therefore it is called once in the
 --  init method.
+--  addSnow Function is needed multiple times, therefore it is called once in the
 function  initSnow()
     flaketable={}
     liveline=8
