@@ -6,8 +6,8 @@
 --  addSnow Function is needed multiple times, therefore it is called once in the
 function  initSnow()
     flaketable={}
-    liveline=8
-    deadline=100
+    liveline=0
+    deadline=92
     snowdirections={-1,1}
     snowfrm=30
     snowfrmrate=30
@@ -23,7 +23,7 @@ function addSnow()
                 makesway=flr(rnd(8))
                 add(flaketable, {
                 x=i-makesway,
-                y=0+makesway,
+                y=(-5+makesway),
                 sway=makesway,
                 border=10,
                 top=4,
@@ -48,9 +48,11 @@ function addSnow()
                 end,
                 -- Artist
                 draw=function(self)
-                    if(self.y > liveline-self.bottom) then
-                        spr(0,self.x,self.y)
-                    end
+                    if(self.y > liveline-self.top) then  
+                        if(self.y > liveline-self.bottom) then
+                            spr(0,self.x,self.y)
+                        end
+                    end                  
                 end,
             })
             end
@@ -68,8 +70,8 @@ function updateSnow()
 end
 
 function drawSnow()
-    line(0, liveline, 128, liveline, 7)
-    line(0, deadline, 128, deadline, 7)
+    line(0, liveline, 128, liveline, 0)
+    line(0, deadline, 128, deadline, 1)
     for f in all(flaketable) do
         f:draw()
     end

@@ -6,7 +6,7 @@
 -- Houses are only created at init so no need for a 'addHouse' function to be made
 function initHouse()
     housefrm=0
-    housefrmrate=1
+    housefrmrate=2
     houses={
         {
             {2,-8,-8},
@@ -43,7 +43,7 @@ function initHouse()
         lasthosue = makehousetype
         -- Constructor
         add(housetable, {
-            coords={(128+16*(i-1)),92},
+            coords={(128+16*(i-1)),84},
             sprites=houses[makehousetype],
         -- Updater & Destructor
             update=function(self)

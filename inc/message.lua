@@ -1,14 +1,14 @@
 -- Message
 -- Manages the creation and display of messages
--- V1
+-- V2
 
 function initMessage()
     messagetable = {}
     messagefrm = 0
-    messagetime = 0
+    messagetime = time()
 end
 
-function addMessage(input_text,inputspeed,inputcolors,input_x,input_y)
+function addMessage(input_text,inputspeed,inputcolors,input_x,input_y,inputarc)
     add(messagetable, {
         text=input_text,
         speed=inputspeed,
@@ -17,7 +17,7 @@ function addMessage(input_text,inputspeed,inputcolors,input_x,input_y)
         base_x=input_x,
         last_x=0,
         coord_y=input_y,
-        last_x=0,
+        arc=inputarc
     })
     for m in all (messagetable) do
         if m.last_x == 0 then
@@ -37,9 +37,18 @@ end
 
 function drawMessage()
     for m in all(messagetable) do
+        colorindex=1
         for t = 1, #m.text, 1 do
             letter = sub(m.text, t, t)
-            print(letter, (m.base_x + t*4) - m.time , m.coord_y, 5)
+            lettertime = messagetime - (0.1 * t)
+            print(letter, (m.base_x + t*4) - m.time , (m.coord_y + sin(lettertime*0.5)*m.arc), m.colors[colorindex])
+            if letter != " " then
+                colorindex += 1 -- next colour
+                if #m.colors < colorindex then
+                    colorindex = 1
+                end
+		    end
         end
-    end
+    end    
+    print("By Craig McLeod",68,120,2)
 end
