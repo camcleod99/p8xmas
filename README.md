@@ -8,12 +8,12 @@
         to go for the next time around does that work? Eh, probably not.
 
 ### Text
-- [ ] Get this going 
+- [x] Get this going 
 
 ### Music
-- [ ] Learn Music
-- [ ] Yeah, ok -_-;;;
+- [x] Learn Music
+- [x] Yeah, ok -_-;;;
 
 ### Compile Code into single p8
-- [ ] Is there a way to replace #include with the contents of the include? Investigate further
-- [ ] Maybe something with Gulp?
+- [] Is there a way to replace #include with the contents of the include? Investigate further
+- [] Maybe something with Gulp?

@@ -5,6 +5,7 @@ function _init()
     initSnow()
     initHouse()
     initMessage()
+    initMusic()
     addMessage(
         "Another Year gone? How Time Flies! Here's to a Merry Christmas and a Happy New Year from Silly Dice!",
         1,{7,8,9},128,104,8)

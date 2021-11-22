@@ -5,7 +5,7 @@
 function initMessage()
     messagetable = {}
     messagefrm = 0
-    messagetime = time()
+    -- messagetime = time()
 end
 
 function addMessage(input_text,inputspeed,inputcolors,input_x,input_y,inputarc)
@@ -27,6 +27,7 @@ function addMessage(input_text,inputspeed,inputcolors,input_x,input_y,inputarc)
 end
 
 function updateMessage()
+    messagetime = time()
     for m in all(messagetable) do
         m.time += m.speed
         if (m.base_x + m.last_x - m.time) < 0 then
@@ -41,7 +42,7 @@ function drawMessage()
         for t = 1, #m.text, 1 do
             letter = sub(m.text, t, t)
             lettertime = messagetime - (0.1 * t)
-            print(letter, (m.base_x + t*4) - m.time , (m.coord_y + sin(lettertime*0.5)*m.arc), m.colors[colorindex])
+            print(letter, (m.base_x + t*4) - m.time , m.coord_y + sin(lettertime*0.5)*(m.arc), m.colors[colorindex])
             if letter != " " then
                 colorindex += 1 -- next colour
                 if #m.colors < colorindex then

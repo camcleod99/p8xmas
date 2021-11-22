@@ -3,7 +3,6 @@
 -- V2
 
 --  init method.
---  addSnow Function is needed multiple times, therefore it is called once in the
 function  initSnow()
     flaketable={}
     liveline=0
@@ -13,6 +12,7 @@ function  initSnow()
     snowfrmrate=30
     snowfrmrates={3,6,9,12,15,18,21,24,27,30}
     snowfallrate=1
+    bgcolor=2
     addSnow()
 end
 
@@ -70,8 +70,31 @@ function updateSnow()
 end
 
 function drawSnow()
-    line(0, liveline, 128, liveline, 0)
+    -- Line
     line(0, deadline, 128, deadline, 1)
+
+    -- Background
+    rectfill(0,0,128,deadline-1,5)
+
+    -- Moon
+    spr(8,10,10)
+    spr(9,18,10)
+    spr(24,10,18)
+    spr(25,18,18)
+
+    -- Big Stars
+    spr(1,65,10)
+    spr(1,32,13)
+    spr(1,108,24)
+    spr(1,84,32)
+
+    -- Small Stars
+    spr(16,52,12)
+    spr(16,14,35)
+    spr(16,116,4)
+    spr(16,87,9)
+    spr(16,42,29)
+
     for f in all(flaketable) do
         f:draw()
     end
